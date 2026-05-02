@@ -92,7 +92,6 @@
                                 <asp:BoundField DataField="FullName" HeaderText="Full Name" />
                                 <asp:BoundField DataField="Email" HeaderText="Email" />
                                 <asp:BoundField DataField="Role" HeaderText="Role" />
-                                <asp:BoundField DataField="RegistrationDate" HeaderText="Registration Date" DataFormatString="{0:yyyy-MM-dd}" />
                                 <asp:TemplateField HeaderText="Actions">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete" CssClass="btn btn-danger btn-sm"

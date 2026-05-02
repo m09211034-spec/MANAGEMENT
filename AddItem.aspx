@@ -74,6 +74,7 @@
                         <div class="col-md-10 col-lg-8">
                             <div class="card shadow-sm">
                                 <div class="card-body">
+                                    <asp:Label ID="lblMessage" runat="server" CssClass="d-block mb-3"></asp:Label>
                                     <div class="mb-3">
                                         <label for="txtItemName" class="form-label">Item Name</label>
                                         <asp:TextBox ID="txtItemName" runat="server" CssClass="form-control" placeholder="e.g., iPhone 13, Blue Wallet"></asp:TextBox>

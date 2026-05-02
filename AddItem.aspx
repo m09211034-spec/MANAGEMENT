@@ -128,6 +128,7 @@
                                         <asp:Button ID="btnSave" runat="server" Text="Save Item" CssClass="btn btn-primary px-4" OnClick="btnSave_Click" />
                                         <a href="ManageItems.aspx" class="btn btn-outline-secondary px-4 ms-2">Cancel</a>
                                     </div>
+                                    <asp:Label ID="lblStatus" runat="server" CssClass="d-block mt-3"></asp:Label>
                                 </div>
                             </div>
                         </div>

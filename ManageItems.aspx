@@ -72,6 +72,16 @@
                         </div>
                     </div>
 
+                    <!-- Search Bar -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <asp:TextBox ID="txtSearch" runat="server" CssClass="form-control" placeholder="Search by name or category..."></asp:TextBox>
+                                <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-outline-secondary" OnClick="btnSearch_Click" />
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- GridView -->
                     <div class="table-responsive">
                         <asp:GridView ID="gvItems" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover align-middle"
@@ -80,7 +90,7 @@
                                 <asp:BoundField DataField="ItemID" HeaderText="ID" />
                                 <asp:TemplateField HeaderText="Image">
                                     <ItemTemplate>
-                                        <img src='<%# Eval("ImageUrl") %>' alt="Item Image" class="item-thumbnail" />
+                                        <img src='<%# ResolveUrl(Eval("ImagePath").ToString()) %>' alt="Item Image" class="item-thumbnail" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:BoundField DataField="ItemName" HeaderText="Name" />

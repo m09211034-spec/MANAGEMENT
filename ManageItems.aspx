@@ -1,9 +1,9 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManageUsers.aspx.cs" Inherits="LostAndFoundHub.ManageUsers" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ManageItems.aspx.cs" Inherits="LostAndFoundHub.ManageItems" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Manage Users - Lost & Found Hub</title>
+    <title>Manage Items - Lost & Found Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         body {
@@ -30,6 +30,12 @@
         .content {
             padding: 20px;
         }
+        .item-thumbnail {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -45,10 +51,10 @@
                                 <a class="nav-link" href="Dashboard.aspx">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="ManageItems.aspx">Manage Items</a>
+                                <a class="nav-link active" href="ManageItems.aspx">Manage Items</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="ManageUsers.aspx">Manage Users</a>
+                                <a class="nav-link" href="ManageUsers.aspx">Manage Users</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="Default.aspx">Logout</a>
@@ -60,43 +66,38 @@
                 <!-- Main Content -->
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Manage Users</h1>
+                        <h1 class="h2">Manage Items</h1>
                         <div class="btn-toolbar mb-2 mb-md-0">
-                            <a href="AddUser.aspx" class="btn btn-primary">Add New User</a>
+                            <a href="AddItem.aspx" class="btn btn-primary">Add New Item</a>
                         </div>
                     </div>
 
-                    <!-- Search Section -->
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="row g-3 align-items-center">
-                                <div class="col-auto">
-                                    <label for="txtSearchUser" class="col-form-label">Search User:</label>
-                                </div>
-                                <div class="col-auto">
-                                    <asp:TextBox ID="txtSearchUser" runat="server" CssClass="form-control" placeholder="Name or Email"></asp:TextBox>
-                                </div>
-                                <div class="col-auto">
-                                    <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-secondary" OnClick="btnSearch_Click" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Users GridView -->
+                    <!-- GridView -->
                     <div class="table-responsive">
-                        <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover"
-                            OnRowDeleting="gvUsers_RowDeleting" DataKeyNames="UserID">
+                        <asp:GridView ID="gvItems" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover align-middle"
+                            OnRowDeleting="gvItems_RowDeleting" DataKeyNames="ItemID">
                             <Columns>
-                                <asp:BoundField DataField="UserID" HeaderText="ID" />
-                                <asp:BoundField DataField="FullName" HeaderText="Full Name" />
-                                <asp:BoundField DataField="Email" HeaderText="Email" />
-                                <asp:BoundField DataField="Role" HeaderText="Role" />
-                                <asp:BoundField DataField="RegistrationDate" HeaderText="Registration Date" DataFormatString="{0:yyyy-MM-dd}" />
+                                <asp:BoundField DataField="ItemID" HeaderText="ID" />
+                                <asp:TemplateField HeaderText="Image">
+                                    <ItemTemplate>
+                                        <img src='<%# Eval("ImageUrl") %>' alt="Item Image" class="item-thumbnail" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="ItemName" HeaderText="Name" />
+                                <asp:BoundField DataField="Category" HeaderText="Category" />
+                                <asp:BoundField DataField="Location" HeaderText="Location" />
+                                <asp:TemplateField HeaderText="Status">
+                                    <ItemTemplate>
+                                        <span class='badge <%# GetStatusBadgeClass(Eval("Status").ToString()) %>'>
+                                            <%# Eval("Status") %>
+                                        </span>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="DateReported" HeaderText="Date" DataFormatString="{0:yyyy-MM-dd}" />
                                 <asp:TemplateField HeaderText="Actions">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete" CssClass="btn btn-danger btn-sm"
-                                            OnClientClick="return confirm('Are you sure you want to delete this user?');">Delete</asp:LinkButton>
+                                            OnClientClick="return confirm('Are you sure?');">Delete</asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

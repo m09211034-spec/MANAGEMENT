@@ -46,16 +46,16 @@
                         <h4 class="px-3">Hub Admin</h4>
                         <ul class="nav flex-column mt-4">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Dashboard</a>
+                                <a class="nav-link" href="Dashboard.aspx">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Manage Items</a>
+                                <a class="nav-link" href="ManageItems.aspx">Manage Items</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" href="ManageUsers.aspx">Manage Users</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Logout</a>
+                                <a class="nav-link" href="Default.aspx">Logout</a>
                             </li>
                         </ul>
                     </div>

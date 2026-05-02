@@ -79,6 +79,8 @@
                             CssClass="text-danger small" Display="Dynamic"></asp:CompareValidator>
                     </div>
 
+                    <asp:Label ID="lblMessage" runat="server" CssClass="text-danger small mb-3 d-block" EnableViewState="false"></asp:Label>
+
                     <div class="d-grid gap-2 mt-4">
                         <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn btn-primary" OnClick="btnRegister_Click" />
                     </div>

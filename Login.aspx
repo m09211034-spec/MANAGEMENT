@@ -62,6 +62,8 @@
                             ErrorMessage="Password is required" CssClass="text-danger small" Display="Dynamic"></asp:RequiredFieldValidator>
                     </div>
 
+                    <asp:Label ID="lblMessage" runat="server" CssClass="text-danger small mb-3 d-block" EnableViewState="false"></asp:Label>
+
                     <div class="d-grid gap-2 mt-4">
                         <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
                     </div>

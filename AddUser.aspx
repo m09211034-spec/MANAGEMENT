@@ -103,6 +103,8 @@
                                         <asp:RequiredFieldValidator ID="rfvRole" runat="server" ControlToValidate="ddlRole" InitialValue=""
                                             ErrorMessage="Please select a role" CssClass="error-message" Display="Dynamic"></asp:RequiredFieldValidator>
                                     </div>
+                                    <asp:Label ID="lblMessage" runat="server" CssClass="text-danger small mb-3 d-block" EnableViewState="false"></asp:Label>
+
                                     <div class="mt-4">
                                         <asp:Button ID="btnSave" runat="server" Text="Save User" CssClass="btn btn-primary" OnClick="btnSave_Click" />
                                     </div>

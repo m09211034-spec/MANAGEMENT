@@ -22,13 +22,23 @@ namespace LostAndFoundHub
             }
         }
 
-        private void BindGrid()
+        private void BindGrid(string searchKeyword = "")
         {
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 string query = "SELECT * FROM Users";
+                if (!string.IsNullOrEmpty(searchKeyword))
+                {
+                    query += " WHERE FullName LIKE @Search OR Email LIKE @Search";
+                }
+
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
+                    if (!string.IsNullOrEmpty(searchKeyword))
+                    {
+                        cmd.Parameters.AddWithValue("@Search", "%" + searchKeyword + "%");
+                    }
+
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
@@ -42,22 +52,7 @@ namespace LostAndFoundHub
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string search = txtSearchUser.Text.Trim();
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                string query = "SELECT * FROM Users WHERE FullName LIKE @Search OR Email LIKE @Search";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Search", "%" + search + "%");
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        gvUsers.DataSource = dt;
-                        gvUsers.DataBind();
-                    }
-                }
-            }
+            BindGrid(txtSearchUser.Text.Trim());
         }
 
         protected void gvUsers_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -73,7 +68,7 @@ namespace LostAndFoundHub
                     cmd.ExecuteNonQuery();
                 }
             }
-            BindGrid();
+            BindGrid(txtSearchUser.Text.Trim());
         }
     }
 }

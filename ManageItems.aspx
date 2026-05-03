@@ -103,7 +103,7 @@
                                         </span>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="DateReported" HeaderText="Date" DataFormatString="{0:yyyy-MM-dd}" />
+                                <asp:BoundField DataField="Date" HeaderText="Date" DataFormatString="{0:yyyy-MM-dd}" />
                                 <asp:TemplateField HeaderText="Actions">
                                     <ItemTemplate>
                                         <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete" CssClass="btn btn-danger btn-sm"

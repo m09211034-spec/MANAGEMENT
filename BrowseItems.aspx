@@ -30,6 +30,9 @@
                             <a class="nav-link active" href="BrowseItems.aspx">Browse Items</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="AddItem.aspx">Report an Item</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="Login.aspx">Login</a>
                         </li>
                         <li class="nav-item">

@@ -17,6 +17,10 @@ namespace LostAndFoundHub
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -40,7 +44,7 @@ namespace LostAndFoundHub
 
                         using (SqlConnection conn = new SqlConnection(connStr))
                         {
-                            string sql = "INSERT INTO Items (ItemName, Description, Category, Location, Status, Date, ImagePath) VALUES (@ItemName, @Description, @Category, @Location, @Status, @Date, @ImagePath)";
+                            string sql = "INSERT INTO Items (ItemName, Description, Category, Location, Status, Date, ImagePath, UserID) VALUES (@ItemName, @Description, @Category, @Location, @Status, @Date, @ImagePath, @UserID)";
                             using (SqlCommand cmd = new SqlCommand(sql, conn))
                             {
                                 cmd.Parameters.AddWithValue("@ItemName", txtItemName.Text.Trim());
@@ -50,6 +54,7 @@ namespace LostAndFoundHub
                                 cmd.Parameters.AddWithValue("@Status", ddlStatus.SelectedValue);
                                 cmd.Parameters.AddWithValue("@Date", DateTime.Now);
                                 cmd.Parameters.AddWithValue("@ImagePath", filePath);
+                                cmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
 
                                 conn.Open();
                                 cmd.ExecuteNonQuery();

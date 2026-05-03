@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BrowseItems.aspx.cs" Inherits="LostAndFoundHub.BrowseItems" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BrowseItems.aspx.cs" Inherits="LostAndFoundHub.BrowseItems" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="LostAndFoundHub.Register" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Register.aspx.cs" Inherits="LostAndFoundHub.Register" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

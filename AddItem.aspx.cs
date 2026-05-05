@@ -66,7 +66,7 @@ namespace LostAndFoundHub
                     catch (Exception ex)
                     {
                         string errorMessage = ex.Message.Replace("'", "\\'");
-                        ClientScript.RegisterStartupScript(this.GetType(), "ErrorAlert", $"alert('Error: {errorMessage}');", true);
+                       ClientScript.RegisterStartupScript(this.GetType(), "ErrorAlert", "alert('Error: " + errorMessage + "');", true);
                     }
                 }
                 else

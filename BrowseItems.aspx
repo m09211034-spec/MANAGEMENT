@@ -70,6 +70,7 @@
                                         <strong>Location:</strong> <%# Eval("Location") %><br />
                                         <strong>Status:</strong> <span class='badge <%# GetStatusBadgeClass(Eval("Status").ToString()) %>'><%# Eval("Status") %></span>
                                     </p>
+                                    <a href='EditItem.aspx?id=<%# Eval("ItemID") %>' class="btn btn-outline-primary btn-sm mt-2">Edit</a>
                                 </div>
                             </div>
                         </div>

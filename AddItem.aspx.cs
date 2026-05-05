@@ -61,20 +61,18 @@ namespace LostAndFoundHub
                             }
                         }
 
-                        lblStatus.Text = "Item saved successfully!";
-                        lblStatus.ForeColor = System.Drawing.Color.Green;
+                        ClientScript.RegisterStartupScript(this.GetType(), "SuccessAlert", "alert('Item added successfully!');", true);
                         ClearFields();
                     }
                     catch (Exception ex)
                     {
-                        lblStatus.Text = "Error: " + ex.Message;
-                        lblStatus.ForeColor = System.Drawing.Color.Red;
+                        string errorMessage = ex.Message.Replace("'", "\\'");
+                        ClientScript.RegisterStartupScript(this.GetType(), "ErrorAlert", $"alert('Error: {errorMessage}');", true);
                     }
                 }
                 else
                 {
-                    lblStatus.Text = "Please upload an image.";
-                    lblStatus.ForeColor = System.Drawing.Color.Red;
+                    ClientScript.RegisterStartupScript(this.GetType(), "ErrorAlert", "alert('Please upload an image.');", true);
                 }
             }
         }

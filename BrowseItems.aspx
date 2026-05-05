@@ -62,7 +62,7 @@
                     <ItemTemplate>
                         <div class="col">
                             <div class="card h-100 item-card shadow-sm">
-                                <img src='<%# Eval("ImageUrl") %>' class="card-img-top" alt='<%# Eval("ItemName") %>'>
+                                <img src='<%# GetImageUrl(Eval("ImagePath")) %>' class="card-img-top" alt='<%# Eval("ItemName") %>'>
                                 <div class="card-body">
                                     <h5 class="card-title"><%# Eval("ItemName") %></h5>
                                     <p class="card-text">
@@ -72,7 +72,7 @@
                                     </p>
                                 </div>
                                 <div class="card-footer bg-transparent border-top-0">
-                                    <small class="text-muted">Reported on <%# Eval("DateReported", "{0:MMM dd, yyyy}") %></small>
+                                    <small class="text-muted">Reported on <%# Eval("Date", "{0:MMM dd, yyyy}") %></small>
                                 </div>
                             </div>
                         </div>

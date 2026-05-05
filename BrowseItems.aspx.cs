@@ -31,7 +31,7 @@ namespace LostAndFoundHub
                 {
                     sql += " WHERE ItemName LIKE @search OR Category LIKE @search OR Location LIKE @search";
                 }
-                sql += " ORDER BY Date DESC";
+                sql += " ORDER BY ItemID DESC";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {

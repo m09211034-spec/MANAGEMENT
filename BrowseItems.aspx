@@ -71,9 +71,6 @@
                                         <strong>Status:</strong> <span class='badge <%# GetStatusBadgeClass(Eval("Status").ToString()) %>'><%# Eval("Status") %></span>
                                     </p>
                                 </div>
-                                <div class="card-footer bg-transparent border-top-0">
-                                    <small class="text-muted">Reported on <%# Eval("Date", "{0:MMM dd, yyyy}") %></small>
-                                </div>
                             </div>
                         </div>
                     </ItemTemplate>

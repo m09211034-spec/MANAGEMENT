@@ -44,7 +44,7 @@ namespace LostAndFoundHub
 
                         using (SqlConnection conn = new SqlConnection(connStr))
                         {
-                            string sql = "INSERT INTO Items (ItemName, Description, Category, Location, Status, Date, ImagePath, UserID) VALUES (@ItemName, @Description, @Category, @Location, @Status, @Date, @ImagePath, @UserID)";
+                            string sql = "INSERT INTO Items (ItemName, Description, Category, Location, Status, ImagePath, UserID) VALUES (@ItemName, @Description, @Category, @Location, @Status, @ImagePath, @UserID)";
                             using (SqlCommand cmd = new SqlCommand(sql, conn))
                             {
                                 cmd.Parameters.AddWithValue("@ItemName", txtItemName.Text.Trim());
@@ -52,7 +52,6 @@ namespace LostAndFoundHub
                                 cmd.Parameters.AddWithValue("@Category", ddlCategory.SelectedValue);
                                 cmd.Parameters.AddWithValue("@Location", txtLocation.Text.Trim());
                                 cmd.Parameters.AddWithValue("@Status", ddlStatus.SelectedValue);
-                                cmd.Parameters.AddWithValue("@Date", DateTime.Now);
                                 cmd.Parameters.AddWithValue("@ImagePath", filePath);
                                 cmd.Parameters.AddWithValue("@UserID", Session["UserID"]);
 

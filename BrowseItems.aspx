@@ -87,7 +87,7 @@
 
         <footer class="footer mt-5 py-3 bg-light border-top">
             <div class="container text-center">
-                <span class="text-muted">&copy; 2023 Lost & Found Hub</span>
+                <span class="text-muted">&copy;  Lost & Found Hub</span>
             </div>
         </footer>
     </form>

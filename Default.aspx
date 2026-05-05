@@ -44,7 +44,7 @@
                 <p class="col-md-8 fs-4 mx-auto">Helping you find what you lost and return what you found. A community-driven platform for reuniting people with their belongings.</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <a href="BrowseItems.aspx" class="btn btn-primary btn-lg px-4 gap-3">Browse Items</a>
-                    <a href="Login.aspx" class="btn btn-outline-secondary btn-lg px-4">Report an Item</a>
+                    <a href="AddItem.aspx" class="btn btn-outline-secondary btn-lg px-4">Report an Item</a>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
 
         <footer class="footer mt-auto py-3 bg-light border-top fixed-bottom">
             <div class="container text-center">
-                <span class="text-muted">&copy; 2023 Lost & Found Hub</span>
+                <span class="text-muted">&copy;  Lost & Found Hub</span>
             </div>
         </footer>
     </form>
